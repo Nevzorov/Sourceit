@@ -1,8 +1,10 @@
 package com.leisurepro;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.*;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static com.leisurepro.UiUtils.*;
@@ -45,4 +47,8 @@ public class Page {
     public String getGreeting(){
         return getDriver().findElement(By.cssSelector(GREETING)).getText();
     }
+
+    public List<WebElement> getSignInList(){
+        $(cssSelector(".head-account a")).click();
+        return getDriver().findElements((By.cssSelector(".nav-logged-out")));}
 }
